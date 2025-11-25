@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#667eea">
+    <meta name="description" content="AI Workflow Automation Service Agreement Generator">
+    <title>AI Workflow Automation Service Agreement</title>
+    <link rel="manifest" href="#" id="manifest-placeholder">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .action-bar {
+            max-width: 900px;
+            margin: 0 auto 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .action-btn {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            font-size: 0.95em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        .action-btn:active {
+            transform: translateY(0);
+        }
+        
+        .action-btn.primary {
+            background: #667eea;
+            color: white;
+        }
+        
+        .action-btn.success {
+            background: #10b981;
+            color: white;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 60px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border-radius: 8px;
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+        
+        .header .subtitle {
+            font-size: 1.1em;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+        
+        .parties {
+            background: #f8f9fa;
+            padding: 25px;
+            border-left: 4px solid #667eea;
+            margin-bottom: 35px;
+            border-radius: 4px;
+        }
+        
+        .party-info {
+            margin-bottom: 15px;
+        }
+        
+        .party-info strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        .party-info input, .party-info textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 0.95em;
+        }
+        
+        .party-info textarea {
+            min-height: 60px;
+            resize: vertical;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section-title {
+            font-size: 1.4em;
+            color: #667eea;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .section-number {
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .clause {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        .clause-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        
+        .clause-content {
+            color: #34495e;
+            text-align: justify;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+        
+        .important-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        
+        .important-box strong {
+            color: #856404;
+        }
+        
+        .signature-section {
+            margin-top: 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .signature-block {
+            border-top: 2px solid #2c3e50;
+            padding-top: 15px;
+        }
+        
+        .signature-block label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .signature-block input {
+            width: 100%;
+            padding: 8px;
+            border: none;
+            border-bottom: 1px solid #ddd;
+            font-family: 'Brush Script MT', cursive;
+            font-size: 1.2em;
+        }
+        
+        .date-section {
+            margin-top: 40px;
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #e9ecef;
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        
+        ul {
+            margin-left: 40px;
+            margin-top: 10px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .editable-field {
+            display: inline-block;
+            min-width: 150px;
+            padding: 2px 8px;
+            background: #e3f2fd;
+            border-bottom: 2px dashed #2196f3;
+            font-weight: 600;
+        }
+        
+        .email-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .email-modal.active {
+            display: flex;
+        }
+        
+        .email-modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        
+        .email-modal h3 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .email-modal input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+        
+        .email-modal textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 1em;
+            margin-bottom: 15px;
+            min-height: 100px;
+        }
+        
+        .email-modal-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            z-index: 2000;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .notification.success {
+            background: #10b981;
+        }
+        
+        .notification.error {
+            background: #ef4444;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .action-bar {
+                display: none;
+            }
+            
+            .container {
+                box-shadow: none;
+                padding: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            .signature-section {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .action-bar {
+                flex-direction: column;
+            }
+            
+            .action-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="action-bar">
+        <button class="action-btn primary" onclick="exportToPDF()">
+            📄 Export to PDF
+        </button>
+        <button class="action-btn success" onclick="openEmailModal()">
+            ✉️ Email PDF
+        </button>
+        <button class="action-btn" onclick="window.print()">
+            🖨️ Print
+        </button>
+        <button class="action-btn" onclick="saveData()">
+            💾 Save Progress
+        </button>
+        <button class="action-btn" onclick="loadData()">
+            📂 Load Saved
+        </button>
+    </div>
+
+    <div class="email-modal" id="emailModal">
+        <div class="email-modal-content">
+            <h3>📧 Email Contract PDF</h3>
+            <input type="email" id="recipientEmail" placeholder="Recipient Email" value="christian.t.espinosa@gmail.com">
+            <input type="text" id="emailSubject" placeholder="Email Subject" value="AI Workflow Service Agreement">
+            <textarea id="emailMessage" placeholder="Email Message (optional)">Please find attached the AI Workflow Automation Service Agreement for your review.</textarea>
+            <div class="email-modal-buttons">
+                <button class="action-btn" onclick="closeEmailModal()">Cancel</button>
+                <button class="action-btn success" onclick="sendEmail()">Send Email</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="contract">
+        <div class="header">
+            <h1>AI WORKFLOW AUTOMATION</h1>
+            <h1>SERVICE AGREEMENT</h1>
+            <div class="subtitle">Professional Services Contract</div>
+        </div>
+        
+        <div class="parties">
+            <div class="party-info">
+                <strong>SERVICE PROVIDER (Freelancer):</strong>
+                <input type="text" placeholder="Your Full Legal Name" id="provider-name">
+                <textarea placeholder="Your Business Address, City, Country" id="provider-address"></textarea>
+                <input type="email" placeholder="Your Email" id="provider-email">
+            </div>
+            
+            <div class="party-info" style="margin-top: 25px;">
+                <strong>CLIENT:</strong>
+                <input type="text" placeholder="Client Full Legal Name / Company Name" id="client-name">
+                <textarea placeholder="Client Address, City, Country" id="client-address"></textarea>
+                <input type="email" placeholder="Client Email" id="client-email">
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title"><span class="section-number">1.</span> SCOPE OF SERVICES</div>
+            <div class="clause">
+                <div class="clause-content">
+                    The Service Provider agrees to provide AI workflow automation services to the Client, including but not limited to: design, development, implementation, and maintenance of automated workflows using AI technologies, machine learning models, APIs, and related software solutions. Specific deliverables and timelines shall be outlined in separate Statement(s) of Work ("SOW") which form an integral part of this Agreement.
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title"><span class="section-number">2.</span> INTELLECTUAL PROPERTY RIGHTS</div>
+            
+            <div class="clause">
+                <div class="clause-title">2.1 Client Ownership of Workflows</div>
+                <div class="clause-content">
+                    Upon full payment of all fees due, the Client shall own all rights, title, and interest in and to the <span class="highlight">custom AI workflows</span>, configurations, and specific implementations created exclusively for the Client under this Agreement. This includes all documentation, specifications, and outputs directly related to the Client's specific business processes.
+                </div>
+            </div>
+            
+            <div class="clause">
+                <div class="clause-title">2.2 Service Provider Retention of Tools and Libraries</div>
+                <div class="clause-content">
+                    The Service Provider retains all rights, title, and interest in and to: (a) pre-existing libraries, frameworks, templates, and tools; (b) general methodologies, techniques, and know-how; (c) reusable code components and modules not specific to Client's business; and (d) any improvements or derivatives thereof. The Client receives a non-exclusive, perpetual, worldwide license to use such retained materials solely as integrated within the delivered workflows.
+                </div>
+            </div>
+            
+            <div class="clause">
+                <div class="clause-title">2.3 Third-Party Components</div>
+                <div class="clause-content">
+                    Any third-party software, APIs, or services integrated into the workflows remain subject to their respective license terms. The Service Provider warrants that all third-party components used are properly licensed for commercial use.
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title"><span class="section-number">3.</span> FEES AND PAYMENT TERMS</div>
+            
+            <div class="clause">
+                <div class="clause-title">3.1 Service Fees</div>
+                <div class="clause-content">
+                    The Client agrees to pay the Service Provider fees as specified in the applicable SOW. Unless otherwise stated, fees are quoted in <span class="editable-field" contenteditable="true">USD</span> and are exclusive of all applicable taxes.
+                </div>
+            </div>
+            
+            <div class="clause">
+                <div class="clause-title">3.2 Payment Schedule</div>
+                <div class="clause-content">
+                    Payment terms shall be net <span class="editable-field" contenteditable="true">15</span> days from invoice date. Invoices will be issued according to the schedule outlined in the SOW, typically structured as: (a) <span class="editable-field" contenteditable="true">30%</span> upon signing; (b) <span class="editable-field" contenteditable="true">40%</span> upon milestone completion; and (c) <span class="editable-field" contenteditable="true">30%</span> upon final delivery.
+                </div>
+            </div>
+            
+            <div class="clause">
+                <div class="clause-title">3.3 Late Payment Interest</div>
+                <div class="clause-content">
+                    <span class="highlight">Overdue invoices shall accrue interest at the rate of <span class="editable-field" contenteditable="true">1.5%</span> per month</span> (or the maximum rate permitted by law, whichever is lower) from the due date until payment is received in full. The Service Provider reserves the right to suspend services if payment is more than <span class="editable-field" contenteditable="true">15</span> days overdue.
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title"><span class="section-number">4.</span> DATA PROCESSING AND PRIVACY</div>
+            
+            <div class="important-box">
+                <strong>GDPR COMPLIANCE NOTICE:</strong> This section constitutes a Data Processing Addendum in compliance with the EU General Data Protection Regulation (GDPR), UK GDPR, and similar data protection laws worldwide.
+            </div>
+            
+            <div class="clause">
+                <div class="clause-title">4.1 Roles and Responsibilities</div>
+                <div class="clause-content">
+                    The Client acts as the Data Controller and the Service Provider acts as a Data Processor when processing personal data on behalf of the Client. The Service Provider shall process personal data only on documented instructions from the Client, including transfers of personal data to third countries or international organizations.
+                </div>
+            </div>
+            
+            <div class="clause">
+                <div class="clause-title">4.2 Data Processing Obligations</div>
+                <div class="clause-content">
+                    The Service Provider shall:
+                    <ul>
+                        <li>Ensure personnel authorized to process personal data are bound by confidentiality obligations</li>
+                        <li>Implement appropriate technical and organizational security measures (including encryption, access controls, and regular security assessments)</li>
+                        <li>Assist the Client in responding to data subject requests (access, rectification, erasure, restriction, portability)</li>
+                        <li>Notify the Client without undue delay upon becoming aware of a personal data breach (within 24 hours)</li>
+                        <li>Delete or return all personal data to the Client upon termination of services, unless retention is required by law</li>
+                        <li>Make available all information necessary to demonstrate compliance with data protection obligations</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="clause">
+                <div class="clause-title">4.3 Sub-processors</div>
+                <div class="clause-content">
+                    The Service Provider may engage sub-processors (including AI service providers, cloud hosting services) only with prior written consent from the Client. Current approved sub-processors shall be listed in Appendix A. The Service Provider shall impose data protection obligations equivalent to this Agreement on any sub-processor.
+                </div>
+            </div>
+            
+            <div class="clause">
+                <div class="clause-title">4.4 Data Security</div>
+                <div class="clause-content">
+                    The Service Provider implements industry-standard security measures including: end-to-end encryption for data in transit and at rest, multi-factor authentication, regular security audits, access logging and monitoring, and secure development practices. Security measures shall be reviewed and updated annually.
+                </div>
+            </div>
+            
+            <div class="clause">
+                <div class="clause-title">4.5 International Data Transfers</div>
+                <div class="clause-content">
+                    If personal data is transferred outside the European Economic Area (EEA), the Service Provider shall ensure appropriate safeguards are in place, including Standard Contractual Clauses approved by the European Commission or other legally recognized transfer mechanisms.
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title"><span class="section-number">5.</span> CONFIDENTIALITY</div>
+            
+            <div class="clause">
+                <div class="clause-title">5.1 Confidential Information</div>
+                <div class="clause-content">
+                    Both parties agree to maintain in confidence all proprietary information, trade secrets, business data, technical specifications, and other non-public information ("Confidential Information") disclosed during the term of this Agreement. This obligation survives for <span class="editable-field" contenteditable="true">3</span> years after termination.
+                </div>
+            </div>
+            
+            <div class="clause">
+                <div class="clause-title">5.2 Exceptions</div>
+                <div class="clause-content">
+                    Confidential Information does not include information that: (a) is or becomes publicly available through no breach of this Agreement; (b) was rightfully known prior to disclosure; (c) is independently developed; or (d) must be disclosed by law or court order.
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title"><span class="section-number">6.</span> TERM AND TERMINATION</div>
+            
+            <div class="clause">
+                <div class="clause-title">6.1 Term</div>
+                <div class="clause-content">
+                    This Agreement commences on the Effective Date and continues until all SOWs are completed, unless earlier terminated in accordance with this section.
+                </div>
+            </div>
+            
+            <div class="clause">
+                <div class="clause-title">6.2 Termination for Convenience (Kill-Switch Clause)</div>
+                <div class="clause-content">
+                    <span class="highlight">Either party may terminate this Agreement or any SOW for any reason by providing <span class="editable-field" contenteditable="true">7</span> days written notice</span> to the other party. Upon such termination, the Client shall pay for all work completed up to the termination date, plus any non-cancellable expenses incurred. The Service Provider shall deliver all work in progress and transfer all Client data within <span class="editable-field" contenteditable="true">5</span> business days.
+                </div>
+            </div>
+            
+            <div class="clause">
+                <div class="clause-title">6.3 Termination for Cause</div>
+                <div class="clause-content">
+                    Either party may terminate immediately upon written notice if the other party: (a) materially breaches this Agreement and fails to cure within <span class="editable-field" contenteditable="true">14</span> days of written notice; (b) becomes insolvent or subject to bankruptcy proceedings; or (c) ceases business operations.
+                </div>
+            </div>
+            
+            <div class="clause">
+                <div class="clause-title">6.4 Effects of Termination</div>
+                <div class="clause-content">
+                    Upon termination: (a) all outstanding invoices become immediately due; (b) each party shall return or destroy Confidential Information; (c) the Service Provider shall cease using Client trademarks and materials; and (d) sections relating to IP ownership, confidentiality, payment obligations, limitation of liability, and dispute resolution shall survive.
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title"><span class="section-number">7.</span> WARRANTIES AND DISCLAIMERS</div>
+            
+            <div class="clause">
+                <div class="clause-title">7.1 Service Provider Warranties</div>
+                <div class="clause-content">
+                    The Service Provider warrants that: (a) services will be performed in a professional and workmanlike manner consistent with industry standards; (b) it has the right to enter into this Agreement and perform the services; (c) deliverables will not infringe third-party intellectual property rights; and (d) it will comply with all applicable laws.
+                </div>
+            </div>
+            
+            <div class="clause">
+                <div class="clause-title">7.2 Disclaimer</div>
+                <div class="clause-content">
+                    EXCEPT AS EXPRESSLY STATED HEREIN, SERVICES ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND. SERVICE PROVIDER DISCLAIMS ALL IMPLIED WARRANTIES INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. SERVICE PROVIDER DOES NOT WARRANT THAT AI WORKFLOWS WILL BE ERROR-FREE OR UNINTERRUPTED.
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title"><span class="section-number">8.</span> LIMITATION OF LIABILITY</div>
+            
+            <div class="clause">
+                <div class="clause-content">
+                    TO THE MAXIMUM EXTENT PERMITTED BY LAW, SERVICE PROVIDER'S TOTAL LIABILITY ARISING FROM OR RELATED TO THIS AGREEMENT SHALL NOT EXCEED THE TOTAL FEES PAID BY CLIENT IN THE 12 MONTHS PRECEDING THE CLAIM. IN NO EVENT SHALL EITHER PARTY BE LIABLE FOR INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES INCLUDING LOST PROFITS, LOST DATA, OR BUSINESS INTERRUPTION. This limitation does not apply to: (a) either party's indemnification obligations; (b) breaches of confidentiality; (c) infringement of intellectual property rights; or (d) gross negligence or willful misconduct.
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title"><span class="section-number">9.</span> INDEMNIFICATION</div>
+            
+            <div class="clause">
+                <div class="clause-title">9.1 By Service Provider</div>
+                <div class="clause-content">
+                    Service Provider shall indemnify, defend, and hold harmless Client from claims arising from: (a) infringement of third-party intellectual property rights by deliverables; (b) Service Provider's gross negligence or willful misconduct; or (c) violation of applicable laws by Service Provider.
+                </div>
+            </div>
+            
+            <div class="clause">
+                <div class="clause-title">9.2 By Client</div>
+                <div class="clause-content">
+                    Client shall indemnify, defend, and hold harmless Service Provider from claims arising from: (a) Client's use of deliverables in violation of this Agreement; (b) Client-provided data or materials; or (c) modifications to deliverables made by Client or third parties.
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title"><span class="section-number">10.</span> DISPUTE RESOLUTION</div>
+            
+            <div class="clause">
+                <div class="clause-title">10.1 Governing Law and Jurisdiction</div>
+                <div class="clause-content">
+                    <span class="highlight">This Agreement shall be governed by the laws of <span class="editable-field" contenteditable="true">[Your Country]</span>, excluding its conflicts of law provisions.</span> Any disputes arising from or relating to this Agreement shall be subject to the exclusive jurisdiction of the courts located in <span class="editable-field" contenteditable="true">[Your City, Your Country]</span>.
+                </div>
+            </div>
+            
+            <div class="clause">
+                <div class="clause-title">10.2 Negotiation and Mediation</div>
+                <div class="clause-content">
+                    Before initiating formal proceedings, the parties agree to attempt resolution through good-faith negotiation for 30 days. If unresolved, either party may initiate mediation with a mutually agreed mediator. Each party bears its own costs for negotiation and mediation.
+                </div>
+            </div>
+            
+            <div class="clause">
+                <div class="clause-title">10.3 Arbitration (Optional)</div>
+                <div class="clause-content">
+                    If checked ☐, disputes shall be resolved through binding arbitration in accordance with <span class="editable-field" contenteditable="true">[Arbitration Rules]</span> before a single arbitrator in <span class="editable-field" contenteditable="true">[Your City]</span>. The arbitrator's decision shall be final and binding.
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title"><span class="section-number">11.</span> GENERAL PROVISIONS</div>
+            
+            <div class="clause">
+                <div class="clause-title">11.1 Entire Agreement</div>
+                <div class="clause-content">
+                    This Agreement, including all SOWs and appendices, constitutes the entire agreement between the parties and supersedes all prior understandings, whether written or oral.
+                </div>
+            </div>
+            
+            <div class="clause">
+                <div class="clause-title">11.2 Amendments</div>
+                <div class="clause-content">
+                    No modification or amendment shall be valid unless in writing and signed by authorized representatives of both parties.
+                </div>
+            </div>
+            
+            <div class="clause">
+                <div class="clause-title">11.3 Assignment</div>
+                <div class="clause-content">
+                    Neither party may assign this Agreement without prior written consent, except assignments to affiliated entities or in connection with a merger, acquisition, or sale of substantially all assets.
+                </div>
+            </div>
+            
+            <div class="clause">
+                <div class="clause-title">11.4 Severability</div>
+                <div class="clause-content">
+                    If any provision is found invalid or unenforceable, the remainder shall continue in full force and effect.
+                </div>
+            </div>
+            
+            <div class="clause">
+                <div class="clause-title">11.5 Notices</div>
+                <div class="clause-content">
+                    All notices must be in writing and sent to the addresses specified above via email (with confirmation) or certified mail.
+                </div>
+            </div>
+            
+            <div class="clause">
+                <div class="clause-title">11.6 Independent Contractors</div>
+                <div class="clause-content">
+                    The parties are independent contractors. Nothing herein creates a partnership, joint venture, or employment relationship.
+                </div>
+            </div>
+            
+            <div class="clause">
+                <div class="clause-title">11.7 Force Majeure</div>
+                <div class="clause-content">
+                    Neither party shall be liable for failure to perform due to causes beyond reasonable control, including acts of God, war, terrorism, pandemics, or government restrictions.
+                </div>
+            </div>
+        </div>
+        
+        <div class="date-section">
+            <strong>EFFECTIVE DATE:</strong> <input type="date" id="effectiveDate" style="margin-left: 10px; padding: 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 1em;">
+        </div>
+        
+        <div class="signature-section">
+            <div class="signature-block">
+                <label>SERVICE PROVIDER SIGNATURE:</label>
+                <input type="text" placeholder="Type your name" id="provider-signature">
+                <div style="margin-top: 15px;">
+                    <label>Print Name:</label>
+                    <input type="text" placeholder="Print name" id="provider-print">
+                </div>
+                <div style="margin-top: 15px;">
+                    <label>Date:</label>
